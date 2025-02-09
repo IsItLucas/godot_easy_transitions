@@ -1,14 +1,28 @@
-# GEL - Godot Easy Localization 🌍📝🚀
-**GEL (Godot Easy Localization)** is a powerful and flexible translation addon for the Godot Engine.
-Unlike traditional translation systems that rely on Project Settings, external tools or CSVs, GET is entirely node-based, allowing for dynamic and intuitive text localization directly in the scene.
+# GET - Godot Easy Transitions 🎬🚀
+**GET (Godot Easy Transitions)** is a lightweight and flexible addon for the Godot Engine that provides smooth scene transitions using shaders and tweens.
+It offers multiple transition effects that enhance the visual flow of your game.
 
 
 ## 🌟 Features
-* 📌 **Node-Based Translation**: Manage translations directly in your scene tree.
-* 📖 **Multi-Language Support**: Easily switch between different languages at runtime.
-* 🔄 **Dynamic Text Formatting**: Support for formatted text using properties from other nodes.
-* ✅ **Conditional Translations**: Change translations based on in-game conditions.
-* 🎯 **Targeted Property Translation**: Apply translations to any property of any node.
+* 🎭 **Multiple Transition Effects:**
+  * Diamond Pixel: Pixelated diamond-shaped transition.
+  * Circle: Expanding or shrinking circular wipe.
+  * Vertical & Horizontal Slices: Smooth slicing effects.
+  * Fade: Simple fade-in and fade-out effect.
+
+* 🎚️ **Customizable Tweens:**
+  * Fully adjustable transition type, easing, duration, and reverse effects via TransitionTweenSettings.
+
+* 🛠️ **Resource-Based System:**
+  * Easily manage transitions using TransitionSettings.
+  * Adjust textures, hold times, and pixel sizes for pixelated effects.
+
+* 📡 **Global Signals:**
+  * Receive updates for intro_started, intro_ended, outro_started, outro_ended, and scene_changed.
+
+* ♿ **Accessibility Options:**
+  * Skip transitions for players who prefer instant scene changes.
+  * Modify the speed scale of transitions.
 
 
 ## 📥 Installation
@@ -18,35 +32,60 @@ Unlike traditional translation systems that rely on Project Settings, external t
 
 
 ## ⚙️ Configuration
-1. Go to `Project > Project Settings > Godot Easy > Localization`.
+1. Go to `Project > Project Settings > Godot Easy > Transition`.
 2. Customize the addon's behaviour as you like.
 3. You're all set! ✅🎉
 
 
 ## 🚀 Getting Started
 
-### Basic Translation Setup
-1. Add a ![translator](https://github.com/user-attachments/assets/3db894fb-300f-40c1-8339-f1fffe9d5beb) `Translator` node to your scene.
-2. Assign a ![string_data](https://github.com/user-attachments/assets/ceca26ab-de6d-42fa-b2cb-5b63b993c525) `StringData` resource containing translations.
-3. Define ![target](https://github.com/user-attachments/assets/f6c2500a-a308-4805-918c-fc6c91b7b730) `NodeTargets` for the properties to be translated.
-4. Run the project, and the text will update automatically!
+### 🎬 Changing Scenes with Transitions
+To change scenes with smooth transitions, use one of the following functions:
 
-### Using Conditional Translations
-1. Add a ConditionalTranslator node.
-2. Assign two StringData resources (one for each condition outcome).
-3. Create TranslationConditions to determine which translation should be applied
+* **Using a File Path:**
+```
+# Change scene using a file path
+TransitionManager.change_scene_to_file("res://scenes/Level2.tscn")
+```
 
+* **Using a PackedScene:**
+```
+# Change scene using a PackedScene
+var scene: PackedScene = preload("res://scenes/Level2.tscn")
+TransitionManager.change_scene_to_packed(scene)
+```
+
+**Both functions will:**
+* Apply your TransitionSettings.
+* Play the intro transition.
+* Hold for the configured duration (if applicable).
+* Switch to the new scene.
+* Play the outro transition.
+
+## 🎨 Customizing Transition Effects
+* ![icon](https://github.com/user-attachments/assets/bbe612db-2a94-4389-bea3-65d280ea303d) **TransitionSettings**: Defines global transition settings, including texture, hold time, and pixel size.
+* ![icon](https://github.com/user-attachments/assets/e225bd39-b719-4c28-b3e9-4bae7733dd3e) **TransitionTweenSettings**: Controls animation properties such as easing, transition type, and duration.
+
+These resources can be created in the Godot editor and assigned to transitions dynamically.
+
+## 🛠️ Debugging & Accessibility
+The addon features a built-in debug log setting that can be easily turned on and off.
+It also provides multiple accessibility options.
 
 ## 📖 Documentation
-For full documentation, visit the Wiki.
-
+For more details, refer to the **Wiki** which covers:
+* Installation
+* Configuration
+* Usage
+* Advanced Usage
+* Resources
+* Best Practices & Limitations
 
 ## 🤝 Contributing
-We welcome contributions! Feel free to open issues or submit pull requests.
-
+Contributions are welcome! Check the Contributing Guidelines for details on how to report issues, suggest improvements, and submit pull requests.
 
 ## 📜 License
-This project is licensed under the MIT License.
+**GET - Godot Easy Transitions** is licensed under the MIT License.
 
 ---
-Make translations easier and more powerful with GEL - Godot Easy Localization! 🌍🚀
+Enhance your game's scene transitions with GET and make them smooth and cinematic! 🎬✨
