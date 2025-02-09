@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxbmv4cldqgdq"]
+
+[ext_resource type="Shader" uid="uid://4l7cd3xllr5h" path="res://addons/easy_transitions/transition.gdshader" id="1_gmuya"]
+[ext_resource type="Script" uid="uid://wcxva8qjb861" path="res://addons/easy_transitions/autoload.gd" id="1_r4f6y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4f6y"]
+shader = ExtResource("1_gmuya")
+shader_parameter/screen_size = Vector2(1152, 648)
+shader_parameter/progress = 0.0
+shader_parameter/pixel_size = 15.0
+shader_parameter/type = 4
+shader_parameter/reversed = false
+
+[sub_resource type="Gradient" id="Gradient_vtiw8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vgtto"]
+gradient = SubResource("Gradient_vtiw8")
+
+[node name="Transition" type="CanvasLayer"]
+script = ExtResource("1_r4f6y")
+
+[node name="TransitionRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_r4f6y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_vgtto")
